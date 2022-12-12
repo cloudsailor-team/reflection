@@ -30,7 +30,7 @@ class Property extends \ReflectionProperty
 {
 	use Nette\SmartObject;
 
-	public function __toString()
+	public function __toString(): string
 	{
 		return parent::getDeclaringClass()->getName() . '::$' . $this->getName();
 	}
@@ -42,7 +42,7 @@ class Property extends \ReflectionProperty
 	/**
 	 * @return ClassType
 	 */
-	public function getDeclaringClass()
+	public function getDeclaringClass(): \ReflectionClass
 	{
 		return new ClassType(parent::getDeclaringClass()->getName());
 	}

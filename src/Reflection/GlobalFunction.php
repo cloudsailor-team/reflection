@@ -55,7 +55,7 @@ class GlobalFunction extends \ReflectionFunction
 	}
 
 
-	public function __toString()
+	public function __toString(): string
 	{
 		return $this->getName() . '()';
 	}
@@ -67,7 +67,7 @@ class GlobalFunction extends \ReflectionFunction
 	/**
 	 * @return Extension
 	 */
-	public function getExtension()
+	public function getExtension(): ?\ReflectionExtension
 	{
 		return ($name = $this->getExtensionName()) ? new Extension($name) : null;
 	}
@@ -76,7 +76,7 @@ class GlobalFunction extends \ReflectionFunction
 	/**
 	 * @return Parameter[]
 	 */
-	public function getParameters()
+	public function getParameters(): array
 	{
 		foreach ($res = parent::getParameters() as $key => $val) {
 			$res[$key] = new Parameter($this->value, $val->getName());
